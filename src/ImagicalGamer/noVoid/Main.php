@@ -20,7 +20,7 @@ public function onEnable(){
 public function checkVoid(PlayerMoveEvent $event){
     if($event->getTo()->getFloorY() < 0){
         $player = $event->getPlayer();
-        $player->teleport($this->getServer()->getDefaultLevel()->getSpawn());
+        $player->teleport($this->getServer()->getDefaultLevel()->loadChunk($this->getServer()->getDefaultLevel()->getSafeSpawn()->getFloorX(), $this->getServer()->getDefaultLevel()->getSafeSpawn()->getFloorZ()));
         $player->setHealth($player->getHealth(20));
          }
       }
